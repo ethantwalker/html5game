@@ -1,6 +1,6 @@
 class Bear extends Monster {
-    constructor(assetManager, stage, pug, x, y){
-        super(assetManager, stage, pug, x, y);
+    constructor(assetManager, stage, pug, x, y, levelManager){
+        super(assetManager, stage, pug, x, y, levelManager);
 
         this._health = 60;
         this._maxHealth = 60;

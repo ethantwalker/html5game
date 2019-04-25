@@ -19,11 +19,14 @@
     // game objects
     let assetManager;
     let background;
+    let uiManager;
     let pug;
     let robot;
     let mainMenu;
     let pauseMenu;
+    let gameWinMenu;
     let gameOverMenu;
+    let levelManager;
 
     document.onkeydown = onKeyDown;
         document.onkeyup = onKeyUp;
@@ -46,11 +49,12 @@
     
         mainMenu = new MainMenu(assetManager, stage, pug);
         stage.on("mainClosed", mainMenu.hideMe);
+        levelManager = new LevelManager(stage, assetManager, pug);
+
 
         pauseMenu = new PauseMenu(assetManager, stage, pug);
-        gameOverMenu = new GameOverMenu(assetManager, stage, pug);
-        
-        levelManager = new LevelManager(stage, assetManager, pug);
+        gameOverMenu = new GameOverMenu(assetManager, stage, pug, levelManager );
+        uiManager = new UIManager(stage, assetManager, pug);
 
         //show main menu when the game first loads
         mainMenu.showMe();
@@ -163,6 +167,7 @@
         }
 
         pug.update();
+        uiManager.update(!(!mainMenu.inMenu && !pauseMenu.inMenu && !gameOverMenu.inMenu && !pug.dead));
         stage.update();
     }
 

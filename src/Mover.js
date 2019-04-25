@@ -77,7 +77,8 @@ class Mover {
          // reference sprite object for cleaner code below
          let sprite = this._sprite;
 
-
+         //prevents s
+        if((((this._direction == Mover.LEFT || this._direction == Mover.RIGHT) && this._moving) || !this._moving) && this._gravity) this._canJump = false;
             
         // get current width of sprite on this frame
         // we only need to concern ourselves with width in terms of off stage since we rotate sprite up, down, left, and right

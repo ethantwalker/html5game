@@ -1,6 +1,8 @@
 class Monster{
-    constructor(assetManager, stage, pug, x, y){
+    constructor(assetManager, stage, pug, x, y, levelManager){
 
+        this._levelManager = levelManager;
+        this._assetManager = assetManager;
         this._type = 'monster';
         this._pug = pug;
         this._pugSprite = pug.sprite;
@@ -66,7 +68,18 @@ class Monster{
     killMe(){
         this._dead = true;
         createjs.Sound.play("deathSound");
+
+        let random = Math.floor(Math.random()*(5-1+1)+1);
+        console.log(random);
+
+        if(random == 1){
+            let heart = new Collectable(this._stage, this._assetManager, this._levelManager, "heart", this._sprite.x, this._sprite.y);
+            this._levelManager.pushCollectable = heart;
+        }
+
         this._stage.removeChild(this._sprite);
+
+    
     }
 
     stopMe(){

@@ -1,7 +1,8 @@
 class GameOverMenu extends Screen{
-    constructor(assetManager, stage, pug){
+    constructor(assetManager, stage, pug, levelManager){
         super(assetManager, stage, pug);
 
+        this._levelManager = levelManager;
         let background = assetManager.getSprite("spritesheet");
         background.gotoAndStop("gameOverMenu");
         this._screen.addChildAt(background, 0);
@@ -17,6 +18,7 @@ class GameOverMenu extends Screen{
     }
 
     hideMe(){
+        this._levelManager.resetMe();
         this._pug.resetMe();
         this._stage.removeChild(this._screen);
         this._inMenu = false;

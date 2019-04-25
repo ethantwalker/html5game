@@ -166,6 +166,13 @@ class Pug {
         }
     }
 
+    healMe(){
+        if(this._health != this._maxHealth){
+            this._health++;
+            createjs.Sound.play("pickupSound");
+        }
+    }
+
     killMe(){
         //play death animation
         if(!this._dead){

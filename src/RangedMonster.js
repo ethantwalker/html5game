@@ -1,6 +1,6 @@
 class RangedMonster extends Monster{
-    constructor(assetManager, stage, pug, x, y){
-        super(assetManager, stage, pug, x, y);
+    constructor(assetManager, stage, pug, x, y, levelManager){
+        super(assetManager, stage, pug, x, y, levelManager);
         this._projectile = new Projectile(this._stage, assetManager, "laserPellet", 20, this._sprite);
     }
 

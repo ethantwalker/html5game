@@ -45,7 +45,6 @@ class Projectile{
             this._sprite.x = this._parentSprite.x;
             this._sprite.y = this._parentSprite.y;
 
-            wait(7000);
             this._canFire = true;
         }
     }

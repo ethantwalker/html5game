@@ -22,5 +22,10 @@ let manifest = [
         src:"lib/die.ogg",
         id:"deathSound",
         data:4
-    }  
+    },
+    {
+        src:"lib/pickup.ogg",
+        id:"pickupSound",
+        data:4
+    }   
 ];
